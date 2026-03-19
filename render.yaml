@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: vuelos-bfs
+    runtime: python
+    startCommand: gunicorn vuelos_site.wsgi:application
+    buildCommand: ./build.sh
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.2
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: false
